@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>E_One.DataAccess</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-One.Models\E-One.Models.csproj" />
+    <ProjectReference Include="..\E-One.Utility\E-One.Utility.csproj" />
+  </ItemGroup>
+
+</Project>
