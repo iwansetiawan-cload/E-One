@@ -1,4 +1,5 @@
 ﻿using E_One.Models;
+using E_One.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace E_One.Areas.Customer.Controllers
 {
-    [Area("Costomer")]
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
