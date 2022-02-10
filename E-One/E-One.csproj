@@ -26,4 +26,8 @@
     <ProjectReference Include="..\E-One.Utility\E-One.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
+  </ItemGroup>
+
 </Project>
