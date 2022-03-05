@@ -1,5 +1,7 @@
 ﻿using E_One.DataAccess.Repository.IRepository;
 using E_One.Models;
+using E_One.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 namespace E_One.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public class CompanyController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

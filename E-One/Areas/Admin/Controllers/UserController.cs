@@ -1,6 +1,8 @@
 ﻿using E_One.DataAccess.Data;
 using E_One.DataAccess.Repository.IRepository;
 using E_One.Models;
+using E_One.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,6 +13,7 @@ using System.Threading.Tasks;
 namespace E_One.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _db;
