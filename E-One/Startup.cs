@@ -39,6 +39,7 @@ namespace E_One
             services.AddIdentity<IdentityUser,IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<EmailOptions>(Configuration);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
@@ -47,6 +48,24 @@ namespace E_One
                 options.LoginPath = $"/Identity/Account/Login";
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
+            //services.AddAuthentication().AddFacebook(options =>
+            //{
+            //    options.AppId = "479144716347128";
+            //    options.AppSecret = "8888cefba55e9cfa06a2b28f0495e533";
+            //});
+            //services.AddAuthentication().AddGoogle(options =>
+            //{
+            //    options.ClientId = "751413081977-ct8rrlcf8cgt8f42b5evots13mg458lt.apps.googleusercontent.com";
+            //    options.ClientSecret = "LPRLug47n8OQsYAirUVGofLw";
+
+            //});
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
             });
         }
 
@@ -68,7 +87,7 @@ namespace E_One
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 
