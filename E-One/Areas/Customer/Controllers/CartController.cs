@@ -1,4 +1,4 @@
-﻿using E_One.DataAccess.Repository.IRepository;
+﻿    using E_One.DataAccess.Repository.IRepository;
 using E_One.Models;
 using E_One.Models.ViewModels;
 using E_One.Utility;
@@ -192,8 +192,7 @@ namespace E_One.Areas.Customer.Controllers
 
             _unitOfWork.OrderHeader.Add(ShoppingCartVM.OrderHeader);
             _unitOfWork.Save();
-
-            List<OrderDetails> orderDetailsList = new List<OrderDetails>();
+          
             foreach (var item in ShoppingCartVM.ListCart)
             {
                 item.Price = SD.GetPriceBasedOnQuantity(item.Count, item.Product.Price,

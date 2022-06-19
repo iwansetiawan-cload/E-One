@@ -117,9 +117,9 @@
                                 var OrderTotalForStripe = Model.OrderHeader.OrderTotal * 100;
                             }
                             @if (Model.OrderHeader.ApplicationUser.Company == null ||
-                          !Model.OrderHeader.ApplicationUser.Company.IsAuthorizedCompany)
+                         !Model.OrderHeader.ApplicationUser.Company.IsAuthorizedCompany)
                             {
-                                @*<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                         data-key="@Stripe.Value.PublishableKey"
                                         data-amount="@OrderTotalForStripe"
                                         data-name="Bulky Book"
@@ -128,7 +128,7 @@
                                         data-locale="auto"
                                         data-allow-remember-me="false"
                                         data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
-                                </script>*@
+                                </script>
                                 <script>
                                     document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                                 </script>
@@ -145,4 +145,8 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
 
